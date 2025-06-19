@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.Map;
+
 public class OpenLiveAccRegistrationFormPage extends BasePage {
 
     public OpenLiveAccRegistrationFormPage(WebDriver driver) {
@@ -21,8 +23,7 @@ public class OpenLiveAccRegistrationFormPage extends BasePage {
     protected final By lastNameFieldLiveAccPage = By.xpath("//input[@name=\"last_name\"]");
     protected final By emailFieldLiveAccPage = By.xpath("//input[@name=\"email\"]");
     protected final By countryFieldLiveAccPage = By.xpath("//select[@name='country']");
-    protected final By phoneNumCountryCodeFieldLiveAccPage = By.xpath("(//input[@id='country-selector-MazPhoneNumberInput-79'])");
-    protected final By phoneNumberFieldLiveAccPage = By.xpath("(//input[@id='MazPhoneNumberInput-79'])[1]");
+    protected final By phoneNumberFieldLiveAccPage = By.xpath("//input[@inputmode=\"tel\"]");
     protected final By passwordFieldLiveAccpage = By.xpath("//input[@placeholder='Enter your password']");
     protected final By marketingAckCheckboxLiveAccPage = By.xpath("(//input[@type='checkbox'])[1]");
     protected final By startYourApplicationBtnLiveAccPage = By.cssSelector("button[type='submit']");
@@ -68,9 +69,9 @@ public class OpenLiveAccRegistrationFormPage extends BasePage {
     }
 
 
-    public OpenLiveAccRegistrationFormPage enterPhoneNumberLivAcc(String Email) { // Enter Email
+    public OpenLiveAccRegistrationFormPage enterPhoneNumberLivAcc(String PhoneNumber) { // Enter Email
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(emailFieldLiveAccPage)).sendKeys(Email);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(phoneNumberFieldLiveAccPage)).sendKeys(PhoneNumber);
 
         return this;
 
@@ -91,6 +92,32 @@ public class OpenLiveAccRegistrationFormPage extends BasePage {
         return this;
 
     }
+
+    public String generateRandomEmail(){
+
+        String fullEmail = null;
+
+        StringBuilder random = new StringBuilder();
+        String pattern = "ABCD1234*&";
+
+        for (int i = 0; i<=4; i++){
+            random.append(pattern.charAt((int)Math.floor(Math.random()*pattern.length())));
+        }
+
+        fullEmail = random + "@gmail.com";
+        return fullEmail;
+
+    }
+
+    public PersonalDetailsPage clickStartYourApplicationBtn(){
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(startYourApplicationBtnLiveAccPage)).click();
+
+        return new PersonalDetailsPage(driver);
+
+    }
+
+
 
 
 }

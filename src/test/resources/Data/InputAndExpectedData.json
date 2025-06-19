@@ -1,0 +1,26 @@
+{
+  "LiveAccCreationFormData": {
+
+    "FirstName": "Dhruv",
+    "LastName": "Chopra",
+    "CountryValue": "GB",
+    "PhoneNumber": "07400123456",
+    "Password": "Hello@123"
+
+  },
+
+  "DemoCreationFormData": {
+
+    "FirstName": "Dhruv",
+    "LastName": "Chopra",
+    "CountryValue": "GB",
+    "Password": "Hello@123"
+
+  },
+
+  "LiveAccCreationExpectedTexts": {
+
+    "PersonalDetailsSectionText": "Personal details"
+
+  }
+}

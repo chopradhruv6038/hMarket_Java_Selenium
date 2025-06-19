@@ -38,7 +38,7 @@ public class ContactUsFormTests extends BaseTest {
         props.load(loginDetails);
 
 
-        jsonPath = "Data/ExpectedTexts.json";
+        jsonPath = "Data/InputAndExpectedData.json";
         inputData = getClass().getClassLoader().getResourceAsStream(jsonPath);
         jsonTokener = new JSONTokener(inputData);
         jsonObject = new JSONObject(jsonTokener);
