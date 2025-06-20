@@ -4,9 +4,13 @@ import Org.Hmarkets.Tests.Base.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+
+import java.time.Duration;
 
 public class ContactUsFormPage extends BasePage {
 
@@ -26,9 +30,11 @@ public class ContactUsFormPage extends BasePage {
     protected final By phoneNumberContactUsForm = By.cssSelector("input[inputmode=\"tel\"]");
     protected final By subjectDrpdownContactUsForm = By.xpath("//select[@name='subject']");
     protected final By messageToBeSendContactUsForm = By.xpath("//textarea[@name=\"lead_message\"]");
-    protected final By captchaCheckBoxContactUsForm = By.xpath("(//div[@role='presentation'])[1]");
+    protected final By captchaCheckBoxContactUsForm = By.xpath("//span[@id=\"recaptcha-anchor\"]");
+    // (//div[@role="presentation"])[1]
     protected final By sendEnquiryBtnContactUsForm = By.xpath("//button[@type='submit']");
     protected final By yourSubmissionWasSuccessfulMessageContactUsForm = By.xpath("//p[contains(text(), \"Your submission was successful.\")]");
+    protected final By iFrameCaptcha = By.cssSelector("iframe[title='reCAPTCHA']");
 
     //Methods or user actions for contact us page, please update the return type of the methods accordingly
     // Also update the data to be passed and add accordingly in JSON.
@@ -137,12 +143,27 @@ public class ContactUsFormPage extends BasePage {
 
     }
 
-    public ContactUsFormPage clickCaptchaCheckBoxContactUsForm() {
+    public void switchToCaptchaFrame() {
+
+        wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(iFrameCaptcha));
+
+    }
+
+    public ContactUsFormPage clickCaptchaCheckBoxContactUsForm() throws InterruptedException {
+
+//        JavascriptExecutor js = (JavascriptExecutor) driver;
+//        js.executeScript("arguments[0].click();", driver.findElement(captchaCheckBoxContactUsForm));
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(captchaCheckBoxContactUsForm)).click();
+        Thread.sleep(5000);
 
         return this;
 
+    }
+
+
+    public void switchToDefaultContent() {
+        driver.switchTo().defaultContent();
     }
 
 
