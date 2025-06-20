@@ -3,7 +3,7 @@ package Org.Hmarkets.Tests.Tests;
 import Org.Hmarkets.Tests.Base.BaseTest;
 import Org.Hmarkets.Tests.Pom.ContactUsFormPage;
 import Org.Hmarkets.Tests.Pom.HomePage;
-import Org.Hmarkets.Tests.Pom.TryADemoRegistrationFormPage;
+
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.testng.annotations.BeforeClass;
@@ -55,7 +55,7 @@ public class ContactUsFormTests extends BaseTest {
     }
 
 
-    @Test(priority = 0, description = "This test will successfully register and open a demo account and validate successful message upon opening")
+    @Test(priority = 0, description = "This test will successfully fill a contact us form and validate success message")
     public void contactUsFormSuccessfulTests() throws InterruptedException {
 
         homePage.loadUrl(props.getProperty("hmarketswebURL"), "");
