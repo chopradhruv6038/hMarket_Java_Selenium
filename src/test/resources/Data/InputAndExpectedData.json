@@ -11,11 +11,25 @@
 
   "DemoCreationFormData": {
 
+    "SelectLeverage": "1:200",
+    "DemoAccSize": "5000",
     "FirstName": "Dhruv",
     "LastName": "Chopra",
-    "CountryValue": "GB",
-    "Password": "Hello@123"
+    "CountryValue":"GB",
+    "PhoneNum": "07400123456",
+    "SuccessMessageDemoAcc": "Your submission was successful."
+  },
 
+  "ContactUsFormData": {
+
+    "ContactUsPageHeader": "Contact us",
+    "FirstName": "Dhruv",
+    "LastName": "Chopra",
+    "CountryValue":"GB",
+    "PhoneNum": "07400123456",
+    "Subject": "payments",
+    "Message": "Hello This is Dhruv, the QA Specialist, Greetings!",
+    "SuccessMessageContactUsForm": "Your submission was successful."
   },
 
   "LiveAccCreationExpectedTexts": {

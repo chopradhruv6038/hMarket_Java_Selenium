@@ -59,21 +59,35 @@ public class ContactUsFormTests extends BaseTest {
     @Test(priority = 0, description = "This test will successfully register and open a demo account and validate successful message upon opening")
     public void contactUsFormSuccessfulTests() throws InterruptedException {
 
-        homePage.loadUrl("");
+        homePage.loadUrl(props.getProperty("hmarketswebURL"), "");
         homePage.validateContactUsBtnIsDisplayed(); // validate contact us link is displayed.
 
         contactUsFormPage = homePage.clickContactUsBtnTopHomePage();
-
-
+        contactUsFormPage.validateContactUsMainHeaderIsDisplayed();
+        contactUsFormPage.assertContactUsHeaderTextIsCorrect(jsonObject.getJSONObject("ContactUsFormData").getString("ContactUsPageHeader"))
+                .scrollToContactUsForm()
+                .enterFirstNameContactUsForm(jsonObject.getJSONObject("ContactUsFormData").getString("FirstName"))
+                .enterLastNameContactUsForm(jsonObject.getJSONObject("ContactUsFormData").getString("LastName"))
+                .enterEmailContactUsForm(contactUsFormPage.generateRandomEmail())
+                .selectCountryContactUsForm(jsonObject.getJSONObject("ContactUsFormData").getString("CountryValue"))
+                .enterPhoneNumContactUsForm(jsonObject.getJSONObject("ContactUsFormData").getString("PhoneNum"))
+                .selectSubjectContactUsForm(jsonObject.getJSONObject("ContactUsFormData").getString("Subject"))
+                .enterMessageToSendContactUsForm(jsonObject.getJSONObject("ContactUsFormData").getString("Message"))
+                .clickCaptchaCheckBoxContactUsForm()
+                .clickSendEnquiryBtnContactUsForm()
+                .validateContactUsMainHeaderIsDisplayed();
+        contactUsFormPage.assertContactUsSuccessfulSubmissionTextIsCorrect(jsonObject.getJSONObject("ContactUsFormData").getString("SuccessMessageContactUsForm"));
 
 
     }
 
 
+
+
     @Test(priority = 1, description = "Demo account negative / validations tests, this test will validate all the validations or errors")
     public void contactUsFormNegativeValidationsTests(){
 
-        homePage.loadUrl("");
+        homePage.loadUrl(props.getProperty("hmarketswebURL"), "");
         contactUsFormPage = homePage.clickContactUsBtnTopHomePage();
 
 

@@ -63,7 +63,7 @@ public class LiveAccountCreationTests extends BaseTest {
     @Test(priority = 0, description = "This test will successfully register and open a live account and validate successful message upon opening")
     public void liveAccRegistrationSuccessFulTests() throws InterruptedException {
 
-        homePage.loadUrl("");
+        homePage.loadUrl(props.getProperty("hmarketswebURL"), "");
         homePage.validateOpenAnAccountBtnIsDisplayed(); // Validate open an account button is displayed.
 
         openLiveAccRegistrationFormPage = homePage.clickOpenAnAccBtnCntrHomePage();
@@ -75,7 +75,7 @@ public class LiveAccountCreationTests extends BaseTest {
     @Test(priority = 1, description = "Live account negative / validations tests, this test will validate all the validations or errors")
     public void LiveAccRegistrationNegativeValidationsTests() {
 
-        homePage.loadUrl(""); // homepage
+        homePage.loadUrl(props.getProperty("hmarketswebURL"), "");
 
         openLiveAccRegistrationFormPage = homePage.clickOpenAnAccBtnCntrHomePage();
 

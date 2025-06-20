@@ -52,13 +52,25 @@ public class TryADemoAccountCreationTests extends BaseTest {
     }
 
 
-    @Test(priority = 0, description = "This test will successfully register and open a demo account and validate successful message upon opening")
+    @Test(priority = 0, description = "This test will successfully register and open a demo account and validate successful message upon submitting form")
     public void demoAccRegistrationSuccessfulTests() throws InterruptedException {
 
-        homePage.loadUrl("");
-        homePage.validateTryADemoBtnIsDisplayed(); // validate try a demo btn is displayed
-
+        homePage.loadUrl(props.getProperty("hmarketswebURL"), "");
         tryADemoRegistrationFormPage = homePage.clickTryADemoBtnCntrHomePage();
+        tryADemoRegistrationFormPage.selectLeverageDemoAcc(jsonObject.getJSONObject("DemoCreationFormData").getString("SelectLeverage"))
+                .selectDemoAccSize(jsonObject.getJSONObject("DemoCreationFormData").getString("DemoAccSize"))
+                .enterFirstNameDemoAcc(jsonObject.getJSONObject("DemoCreationFormData").getString("FirstName"))
+                .enterLastNameDemoAcc(jsonObject.getJSONObject("DemoCreationFormData").getString("LastName"))
+                .enterEmailDemoAcc(tryADemoRegistrationFormPage.generateRandomEmail())
+                .selectCountryDemoAcc(jsonObject.getJSONObject("DemoCreationFormData").getString("CountryValue"))
+                .enterPhoneNumDemoAcc(jsonObject.getJSONObject("DemoCreationFormData").getString("PhoneNum"))
+                .clickMarketingNewsCheckBoxDemoAcc()
+                .clickOpenADemoAccountBtn();
+        tryADemoRegistrationFormPage.
+                validateSuccessfulSubmissionMessageIsDisplayed();
+        tryADemoRegistrationFormPage
+                .assertSuccessfulSubmissionMessageIsCorrect(jsonObject.getJSONObject("DemoCreationFormData").getString("SuccessMessageDemoAcc"));
+
 
 
 
@@ -69,7 +81,7 @@ public class TryADemoAccountCreationTests extends BaseTest {
     @Test(priority = 1, description = "Demo account negative / validations tests, this test will validate all the validations or errors")
     public void DemoAccRegistrationNegativeValidationsTests(){
 
-        homePage.loadUrl("");
+        homePage.loadUrl(props.getProperty("hmarketswebURL"), "");
         tryADemoRegistrationFormPage = homePage.clickTryADemoBtnCntrHomePage();
 
 

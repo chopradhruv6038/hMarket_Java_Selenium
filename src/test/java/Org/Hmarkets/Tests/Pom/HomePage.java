@@ -21,9 +21,9 @@ public class HomePage extends BasePage {
 
     // Method Starts
 
-    public void loadUrl(String path) { // method to load URL, path can be passed when called in test class according to the need.
+    public void loadUrl(String url, String path) { // method to load URL, path can be passed when called in test class according to the need.
 
-        driver.get("https://hmarkets.com/" + path);
+        driver.get(url + path);
 
     }
 
