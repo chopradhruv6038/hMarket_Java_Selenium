@@ -60,6 +60,9 @@ cd hMarket_Java_Selenium
 Navigate to src/main/resources/config.properties and ensure the base URL is set correctly:
 hmarketswebURL=https://hmarkets.com/
 
+⚙️Load the maven dependencies in pom.xml file.
+
+
 🧪 Running the Tests
 From IntelliJ IDEA:
 Right-click on testng.xml or any test class.
@@ -67,7 +70,8 @@ Right-click on testng.xml or any test class.
 Choose Run to execute tests via TestNG.
 
 FROM Command Line:
-mvn clean test
+Navigate to the project folder
+command: mvn clean test
 
 Maven will automatically resolve dependencies and execute the test suite.
 
