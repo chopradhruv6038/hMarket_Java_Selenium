@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import java.util.Map;
 
@@ -28,8 +29,18 @@ public class OpenLiveAccRegistrationFormPage extends BasePage {
     protected final By marketingAckCheckboxLiveAccPage = By.xpath("(//input[@type='checkbox'])[1]");
     protected final By startYourApplicationBtnLiveAccPage = By.cssSelector("button[type='submit']");
 
+    // Locators for validations:
 
-    // Methods - User Actions starts here:
+    By startYourApplicationBtn = By.xpath("//div[normalize-space()='Start your application']");
+    By firstNameRequiredValidation = By.xpath("//span[normalize-space()='First name is required']");
+    By lastNameRequiredValidation = By.xpath("//span[normalize-space()='Last name is required']");
+    By emailIsRequiredValidation = By.xpath("//span[normalize-space()='Email is required']");
+    By countryIsRequiredValidation = By.xpath("//span[normalize-space()='Country is required']");
+    By invalidPhoneNumberValidation = By.xpath("//span[normalize-space()='Invalid phone number']");
+    By PasswordCharacters8To20CharLongRequiredValidation = By.xpath("//p[normalize-space()='Between 8 and 20 characters long']");
+
+
+    // Methods for Successful Submission - User Actions starts here:
 
 
     public Boolean validateOpenAnAccountHeaderIsDisplayed() { // Validate header is displayed
@@ -93,15 +104,15 @@ public class OpenLiveAccRegistrationFormPage extends BasePage {
 
     }
 
-    public String generateRandomEmail(){
+    public String generateRandomEmail() {
 
         String fullEmail = null;
 
         StringBuilder random = new StringBuilder();
         String pattern = "ABCD1234*&";
 
-        for (int i = 0; i<=4; i++){
-            random.append(pattern.charAt((int)Math.floor(Math.random()*pattern.length())));
+        for (int i = 0; i <= 4; i++) {
+            random.append(pattern.charAt((int) Math.floor(Math.random() * pattern.length())));
         }
 
         fullEmail = random + "@gmail.com";
@@ -109,7 +120,7 @@ public class OpenLiveAccRegistrationFormPage extends BasePage {
 
     }
 
-    public PersonalDetailsPage clickStartYourApplicationBtn(){
+    public PersonalDetailsPage clickStartYourApplicationBtn() {
 
         wait.until(ExpectedConditions.visibilityOfElementLocated(startYourApplicationBtnLiveAccPage)).click();
 
@@ -117,7 +128,115 @@ public class OpenLiveAccRegistrationFormPage extends BasePage {
 
     }
 
+    //Methods for validations or errors:
 
+
+    public String getFirstNameRequiredValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameRequiredValidation)).getText();
+
+    }
+
+    public OpenLiveAccRegistrationFormPage assertFirstNameValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameRequiredValidation)).isDisplayed();
+
+        Assert.assertEquals(getFirstNameRequiredValidationText(), expectedError);
+
+        System.out.println("First Name Validation: " + getFirstNameRequiredValidationText());
+
+        return this;
+
+    }
+
+    public String getLastNameRequiredValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameRequiredValidation)).getText();
+
+    }
+
+    public OpenLiveAccRegistrationFormPage assertLastNameValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameRequiredValidation)).isDisplayed();
+
+        Assert.assertEquals(getLastNameRequiredValidationText(), expectedError);
+
+        return this;
+    }
+
+    public String getEmailRequiredValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(emailIsRequiredValidation)).getText();
+
+    }
+
+    public OpenLiveAccRegistrationFormPage assertEmailValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(emailIsRequiredValidation)).isDisplayed();
+
+        Assert.assertEquals(getEmailRequiredValidationText(), expectedError);
+
+        return this;
+
+    }
+
+
+    public String getCountryRequiredValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(countryIsRequiredValidation)).getText();
+
+    }
+
+    public OpenLiveAccRegistrationFormPage assertCountryValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(countryIsRequiredValidation)).isDisplayed();
+
+        Assert.assertEquals(getCountryRequiredValidationText(), expectedError);
+
+        return this;
+
+
+    }
+
+    public String getInvalidPhoneNumRequiredValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(invalidPhoneNumberValidation)).getText();
+
+    }
+
+    public OpenLiveAccRegistrationFormPage assertInvalidPhoneNumValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(invalidPhoneNumberValidation)).isDisplayed();
+
+        Assert.assertEquals(getInvalidPhoneNumRequiredValidationText(), expectedError);
+
+        return this;
+
+    }
+
+    public String getPasswordCharacterRequiredValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(PasswordCharacters8To20CharLongRequiredValidation)).getText();
+
+    }
+
+    public OpenLiveAccRegistrationFormPage assertPasswordCharacterValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(PasswordCharacters8To20CharLongRequiredValidation)).isDisplayed();
+
+        Assert.assertEquals(getPasswordCharacterRequiredValidationText(), expectedError);
+
+        return this;
+
+    }
+
+    public OpenLiveAccRegistrationFormPage clickStartYourApplicationBtnForValidations() {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(startYourApplicationBtn)).click();
+
+        return this;
+
+    }
 
 
 }

@@ -9,6 +9,18 @@
 
   },
 
+  "LiveAccCreationFormDataValidations": {
+
+    "FirstNameValidation": "First name is required",
+    "LastNameValidation": "Last name is required",
+    "EmailValidation": "Email is required",
+    "CountryValidation": "Country is required",
+    "PhoneNumberValidation": "Invalid phone number",
+    "PasswordValidation": "Between 8 and 20 characters long"
+
+  },
+
+
   "DemoCreationFormData": {
 
     "SelectLeverage": "1:200",
@@ -31,6 +43,8 @@
     "Message": "Hello This is Dhruv, the QA Specialist, Greetings!",
     "SuccessMessageContactUsForm": "Your submission was successful."
   },
+
+
 
   "LiveAccCreationExpectedTexts": {
 

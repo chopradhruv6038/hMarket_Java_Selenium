@@ -1,5 +1,4 @@
 package Org.Hmarkets.Tests.Tests;
-
 import Org.Hmarkets.Tests.Base.BaseTest;
 import Org.Hmarkets.Tests.Pom.HomePage;
 import Org.Hmarkets.Tests.Pom.OpenLiveAccRegistrationFormPage;
@@ -10,12 +9,12 @@ import org.json.JSONTokener;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class LiveAccountCreationTests extends BaseTest {
+public class LiveAccountCreationValidationsTests extends BaseTest {
+
 
     protected HomePage homePage;
     protected OpenLiveAccRegistrationFormPage openLiveAccRegistrationFormPage;
@@ -60,20 +59,8 @@ public class LiveAccountCreationTests extends BaseTest {
     }
 
 
-    @Test(priority = 0, description = "This test will successfully register and open a live account and validate successful message upon opening")
+    @Test(priority = 1, description = "This test will successfully register and open a live account and validate successful message upon opening")
     public void liveAccRegistrationSuccessFulTests() throws InterruptedException {
-
-        homePage.loadUrl(props.getProperty("hmarketswebURL"), "");
-        homePage.validateOpenAnAccountBtnIsDisplayed(); // Validate open an account button is displayed.
-
-        openLiveAccRegistrationFormPage = homePage.clickOpenAnAccBtnCntrHomePage();
-
-
-    }
-
-
-    @Test(priority = 1, description = "Live account negative / validations tests, this test will validate all the validations or errors")
-    public void LiveAccRegistrationNegativeValidationsTests() {
 
         homePage.loadUrl(props.getProperty("hmarketswebURL"), "");
 
@@ -93,8 +80,31 @@ public class LiveAccountCreationTests extends BaseTest {
         personalDetailsPage.assertPersonalDetailsSectionTextIsCorrect(jsonObject.getJSONObject("LiveAccCreationExpectedTexts").getString("PersonalDetailsSectionText"));
 
 
+    }
+
+
+    @Test(priority = 0, description = "This tests validate all the error or validations for all form fields for opening live account.")
+    public void LiveAccRegistrationNegativeValidationsTests() {
+
+        homePage.loadUrl(props.getProperty("hmarketswebURL"), "");
+
+        openLiveAccRegistrationFormPage = homePage.clickOpenAnAccBtnCntrHomePage();
+        openLiveAccRegistrationFormPage.clickStartYourApplicationBtnForValidations()
+                .assertFirstNameValidationTextIsDisplayedAndIsCorrect(jsonObject.getJSONObject("LiveAccCreationFormDataValidations").getString("FirstNameValidation"))
+                .assertLastNameValidationTextIsDisplayedAndIsCorrect(jsonObject.getJSONObject("LiveAccCreationFormDataValidations").getString("LastNameValidation"))
+                .assertEmailValidationTextIsDisplayedAndIsCorrect(jsonObject.getJSONObject("LiveAccCreationFormDataValidations").getString("EmailValidation"))
+                .assertCountryValidationTextIsDisplayedAndIsCorrect(jsonObject.getJSONObject("LiveAccCreationFormDataValidations").getString("CountryValidation"))
+                .assertInvalidPhoneNumValidationTextIsDisplayedAndIsCorrect(jsonObject.getJSONObject("LiveAccCreationFormDataValidations").getString("PhoneNumberValidation"))
+                .assertPasswordCharacterValidationTextIsDisplayedAndIsCorrect(jsonObject.getJSONObject("LiveAccCreationFormDataValidations").getString("PasswordValidation"));
+
+
+
 
     }
+
+
+
+
 
 
 }

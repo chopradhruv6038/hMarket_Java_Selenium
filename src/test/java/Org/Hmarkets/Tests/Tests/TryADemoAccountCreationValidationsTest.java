@@ -1,4 +1,5 @@
 package Org.Hmarkets.Tests.Tests;
+
 import Org.Hmarkets.Tests.Base.BaseTest;
 import Org.Hmarkets.Tests.Pom.HomePage;
 import Org.Hmarkets.Tests.Pom.TryADemoRegistrationFormPage;
@@ -7,11 +8,12 @@ import org.json.JSONTokener;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class TryADemoAccountCreationTests extends BaseTest {
+public class TryADemoAccountCreationValidationsTest extends BaseTest {
 
     protected HomePage homePage;
     protected TryADemoRegistrationFormPage tryADemoRegistrationFormPage;
@@ -87,9 +89,6 @@ public class TryADemoAccountCreationTests extends BaseTest {
 
 
     }
-
-
-
 
 
 

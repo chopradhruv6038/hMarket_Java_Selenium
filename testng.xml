@@ -14,7 +14,7 @@
 
         <classes>
 
-            <class name="Org.Hmarkets.Tests.Tests.LiveAccountCreationTests">
+            <class name="Org.Hmarkets.Tests.Tests.LiveAccountCreationSuccessTests">
 <methods>
 
     <include name=""/>

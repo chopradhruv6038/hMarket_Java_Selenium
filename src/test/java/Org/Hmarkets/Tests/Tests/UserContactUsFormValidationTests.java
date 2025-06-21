@@ -3,7 +3,6 @@ package Org.Hmarkets.Tests.Tests;
 import Org.Hmarkets.Tests.Base.BaseTest;
 import Org.Hmarkets.Tests.Pom.ContactUsFormPage;
 import Org.Hmarkets.Tests.Pom.HomePage;
-
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import org.testng.annotations.BeforeClass;
@@ -14,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class ContactUsFormTests extends BaseTest {
+public class UserContactUsFormValidationTests extends BaseTest {
 
     protected HomePage homePage;
     protected ContactUsFormPage contactUsFormPage;
@@ -76,19 +75,6 @@ public class ContactUsFormTests extends BaseTest {
         contactUsFormPage
                 .clickCaptchaCheckBoxContactUsForm();
 
-        //Note: Selenium script is able to click the reCAPTCHA checkbox,
-        // but it's not verifying as "I'm not a robot" and gets stuck with the spinning loader or invisible check.
-        // That’s expected in most live sites because Google reCAPTCHA uses advanced detection like fingerprinting, user behavior analysis, and browser heuristics.
-        // Commenting the below user actions / methods as selenium cannot surpass captcha.
-
-        // Need to Disable captcha in test ENV for selenium or any test automation to successfully click Captcha.
-
-//        contactUsFormPage.switchToDefaultContent();
-//        contactUsFormPage
-//                .clickSendEnquiryBtnContactUsForm()
-//                .validateSuccessfulMessageIsDisplayed();
-//        contactUsFormPage.assertContactUsSuccessfulSubmissionTextIsCorrect(jsonObject.getJSONObject("ContactUsFormData").getString("SuccessMessageContactUsForm"));
-
 
     }
 
@@ -101,6 +87,7 @@ public class ContactUsFormTests extends BaseTest {
 
 
     }
+
 
 
 }
