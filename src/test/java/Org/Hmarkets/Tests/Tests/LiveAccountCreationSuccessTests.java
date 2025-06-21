@@ -22,14 +22,14 @@ public class LiveAccountCreationSuccessTests extends BaseTest {
     protected TryADemoRegistrationFormPage tryADemoRegistrationFormPage;
     protected PersonalDetailsPage personalDetailsPage;
 
-    String path;
-    InputStream loginDetails;
-    Properties props;
+    protected String path;
+    protected InputStream loginDetails;
+    protected Properties props;
 
-    InputStream inputData;
-    JSONObject jsonObject;
-    JSONTokener jsonTokener;
-    String jsonPath;
+    protected InputStream inputData;
+    protected JSONObject jsonObject;
+    protected JSONTokener jsonTokener;
+    protected String jsonPath;
 
     @BeforeClass
     public void beforeClass() throws IOException {
@@ -59,7 +59,7 @@ public class LiveAccountCreationSuccessTests extends BaseTest {
     }
 
 
-    @Test(priority = 0, description = "This test will successfully register and open a live account and validate successful message upon opening")
+    @Test(priority = 0, description = "Live Account_success_submission | This test will successfully register and open a live account and validate successful message upon opening")
     public void liveAccRegistrationSuccessFulTests() throws InterruptedException {
 
         homePage.loadUrl(props.getProperty("hmarketswebURL"), "");

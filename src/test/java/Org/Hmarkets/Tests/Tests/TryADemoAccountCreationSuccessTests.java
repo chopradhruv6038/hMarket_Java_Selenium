@@ -1,4 +1,5 @@
 package Org.Hmarkets.Tests.Tests;
+
 import Org.Hmarkets.Tests.Base.BaseTest;
 import Org.Hmarkets.Tests.Pom.HomePage;
 import Org.Hmarkets.Tests.Pom.TryADemoRegistrationFormPage;
@@ -7,6 +8,7 @@ import org.json.JSONTokener;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -16,14 +18,14 @@ public class TryADemoAccountCreationSuccessTests extends BaseTest {
     protected HomePage homePage;
     protected TryADemoRegistrationFormPage tryADemoRegistrationFormPage;
 
-    String path;
-    InputStream loginDetails;
-    Properties props;
+    protected String path;
+    protected InputStream loginDetails;
+    protected Properties props;
 
-    InputStream inputData;
-    JSONObject jsonObject;
-    JSONTokener jsonTokener;
-    String jsonPath;
+    protected InputStream inputData;
+    protected JSONObject jsonObject;
+    protected JSONTokener jsonTokener;
+    protected String jsonPath;
 
     @BeforeClass
     public void beforeClass() throws IOException {
@@ -52,7 +54,7 @@ public class TryADemoAccountCreationSuccessTests extends BaseTest {
     }
 
 
-    @Test(priority = 0, description = "This test will successfully register and open a demo account and validate successful message upon submitting form")
+    @Test(priority = 0, description = "Demo Account form_success_submission | This test will successfully register and open a demo account and validate successful message upon submitting form")
     public void demoAccRegistrationSuccessfulTests() throws InterruptedException {
 
         homePage.loadUrl(props.getProperty("hmarketswebURL"), "");
@@ -72,25 +74,17 @@ public class TryADemoAccountCreationSuccessTests extends BaseTest {
                 .assertSuccessfulSubmissionMessageIsCorrect(jsonObject.getJSONObject("DemoCreationFormData").getString("SuccessMessageDemoAcc"));
 
 
-
-
-
     }
 
 
     @Test(priority = 1, description = "Demo account negative / validations tests, this test will validate all the validations or errors")
-    public void DemoAccRegistrationNegativeValidationsTests(){
+    public void DemoAccRegistrationNegativeValidationsTests() {
 
         homePage.loadUrl(props.getProperty("hmarketswebURL"), "");
         tryADemoRegistrationFormPage = homePage.clickTryADemoBtnCntrHomePage();
 
 
-
     }
-
-
-
-
 
 
 }

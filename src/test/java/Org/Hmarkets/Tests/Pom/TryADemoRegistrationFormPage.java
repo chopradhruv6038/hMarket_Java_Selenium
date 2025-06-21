@@ -26,6 +26,17 @@ public class TryADemoRegistrationFormPage extends BasePage {
     protected final By openADemoAccBtnOnDemoAccPage = By.cssSelector("button[type='submit']");
     protected final By successfulSubmissionMessageDemoAccount = By.xpath("//p[normalize-space()=\"Your submission was successful.\"]");
 
+    // Locators for demo account form Validations:
+
+    By openADemoAccountBtn = By.cssSelector("button[type='submit']");
+    By leverageRequiredValidation = By.xpath("//span[normalize-space()='Leverage is required']");
+    By accountSizeRequiredValidation = By.xpath("//span[normalize-space()='Account size is required']");
+    By firstNameDemoRequiredValidation = By.xpath("//span[normalize-space()='First name is required']");
+    By lastNameDemoRequiredValidation = By.xpath("//span[normalize-space()='Last name is required']");
+    By emailDemoRequiredValidation = By.xpath("//span[normalize-space()='Email is required']");
+    By countryDemoRequiredValidation = By.xpath("//span[normalize-space()='Country is required']");
+    By invalidPhoneNumberDemoRequiredValidation = By.xpath("//span[normalize-space()='Invalid phone number']");
+
 
     public Boolean validateMt4OptionIsDisplayed() { // Validating mt4 option is displayed
 
@@ -148,6 +159,133 @@ public class TryADemoRegistrationFormPage extends BasePage {
         return this;
 
     }
+
+    // Validation Methods starts
+
+    public TryADemoRegistrationFormPage clickOpenADemoAccBtnForValidations() {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(openADemoAccBtnOnDemoAccPage)).click();
+
+        return this;
+    }
+
+
+
+    public String getLeverageRequiredValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(leverageRequiredValidation)).getText();
+
+    }
+
+    public TryADemoRegistrationFormPage assertLeverageRequiredValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(leverageRequiredValidation)).isDisplayed();
+
+        Assert.assertEquals(getLeverageRequiredValidationText(), expectedError);
+
+        return this;
+
+
+    }
+
+
+    public String getAccSizeRequiredValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(accountSizeRequiredValidation)).getText();
+
+    }
+
+    public TryADemoRegistrationFormPage assertAccSizeRequiredValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(accountSizeRequiredValidation)).isDisplayed();
+
+        Assert.assertEquals(getAccSizeRequiredValidationText(), expectedError);
+
+        return this;
+
+    }
+
+
+    public String getFirstNameDemoRequiredValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameDemoRequiredValidation)).getText();
+
+    }
+
+    public TryADemoRegistrationFormPage assertFirstNameDemoRequiredValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameDemoRequiredValidation)).isDisplayed();
+
+        Assert.assertEquals(getFirstNameDemoRequiredValidationText(), expectedError);
+
+        return this;
+
+    }
+
+    public String getLastNameDemoRequiredValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameDemoRequiredValidation)).getText();
+
+    }
+
+    public TryADemoRegistrationFormPage assertLastNameDemoRequiredValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameDemoRequiredValidation)).isDisplayed();
+
+        Assert.assertEquals(getLastNameDemoRequiredValidationText(), expectedError);
+
+        return this;
+
+    }
+
+    public String getEmailDemoRequiredValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(emailDemoRequiredValidation)).getText();
+
+    }
+
+    public TryADemoRegistrationFormPage assertEmailDemoRequiredValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(emailDemoRequiredValidation)).isDisplayed();
+
+        Assert.assertEquals(getEmailDemoRequiredValidationText(), expectedError);
+
+        return this;
+
+    }
+
+    public String getCountryDemoRequiredValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(countryDemoRequiredValidation)).getText();
+
+    }
+
+    public TryADemoRegistrationFormPage assertCountryRequiredValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(countryDemoRequiredValidation)).isDisplayed();
+
+        Assert.assertEquals(getCountryDemoRequiredValidationText(), expectedError);
+
+        return this;
+
+    }
+
+    public String getInvalidPhoneNumDemoRequiredValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(invalidPhoneNumberDemoRequiredValidation)).getText();
+
+    }
+
+    public TryADemoRegistrationFormPage assertInvalidPhoneNumRequiredValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(invalidPhoneNumberDemoRequiredValidation)).isDisplayed();
+
+        Assert.assertEquals(getInvalidPhoneNumDemoRequiredValidationText(), expectedError);
+
+        return this;
+
+    }
+
 
 
 }

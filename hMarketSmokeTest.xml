@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="hMarket Web Smoke Test Suite">
+
+    <listeners>
+        <listener class-name="Org.Hmarkets.Tests.Listeners.TestListeners"/>
+    </listeners>
+
+    <test name="hMarket Tests for Successful and Negative Validations or errors Assertions for Live, demo and contact us forms">
+        <parameter name="Browser" value="chrome"/>
+
+        <classes>
+
+            <class name="Org.Hmarkets.Tests.Tests.LiveAccountCreationErrorsOrValidationsTests"/>
+            <class name="Org.Hmarkets.Tests.Tests.TryADemoAccountCreationErrorsOrValidationsTest"/>
+            <class name="Org.Hmarkets.Tests.Tests.UserContactUsFormErrorsOrValidationsTests"/>
+            <class name="Org.Hmarkets.Tests.Tests.LiveAccountCreationSuccessTests"/>
+            <class name="Org.Hmarkets.Tests.Tests.TryADemoAccountCreationSuccessTests"/>
+            <class name="Org.Hmarkets.Tests.Tests.UserContactUsFormSuccessSubmissionTests"/>
+
+        </classes>
+    </test>
+
+
+</suite>

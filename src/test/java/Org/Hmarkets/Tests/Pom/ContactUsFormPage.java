@@ -36,8 +36,18 @@ public class ContactUsFormPage extends BasePage {
     protected final By yourSubmissionWasSuccessfulMessageContactUsForm = By.xpath("//p[contains(text(), \"Your submission was successful.\")]");
     protected final By iFrameCaptcha = By.cssSelector("iframe[title='reCAPTCHA']");
 
-    //Methods or user actions for contact us page, please update the return type of the methods accordingly
-    // Also update the data to be passed and add accordingly in JSON.
+
+    // Locators for validations or errors:
+
+    By sendEnquiryBtn = By.cssSelector("button[type='submit']");
+    By firstNameRequiredValidationContactUsPage = By.xpath("//span[normalize-space()='First name is required']");
+    By lastNameRequiredValidationContactUsPage = By.xpath("//span[normalize-space()='Last name is required']");
+    By emailRequiredValidationContactUsPage = By.xpath("//span[normalize-space()='Email is required']");
+    By countryRequiredValidationContactUsPage = By.xpath("//span[normalize-space()='Country is required']");
+    By invalidPhoneNumberValidationContactUsPage = By.xpath("//span[normalize-space()='Invalid phone number']");
+    By subjectRequiredValidationContactUsPage = By.xpath("//span[normalize-space()='Subject is required']");
+
+
 
     public Boolean validateContactUsMainHeaderIsDisplayed() {
 
@@ -192,6 +202,121 @@ public class ContactUsFormPage extends BasePage {
     public ContactUsFormPage assertContactUsSuccessfulSubmissionTextIsCorrect(String expectedText) {
 
         Assert.assertEquals(getContactUsFormSuccessfulSubmissionText(), expectedText);
+
+        return this;
+
+    }
+
+
+    // Methods for contact us form validations
+
+    public ContactUsFormPage clickSendEnquiryContactUsBtnForValidations() {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(sendEnquiryBtn)).click();
+
+        return this;
+
+    }
+
+
+
+    public String getFirstNameRequiredContactUsPageValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameRequiredValidationContactUsPage)).getText();
+
+    }
+
+    public ContactUsFormPage assertFirstNameContactUsPageRequiredValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameRequiredValidationContactUsPage)).isDisplayed();
+
+        Assert.assertEquals(getFirstNameRequiredContactUsPageValidationText(), expectedError);
+
+        return this;
+
+    }
+
+    public String getLastNameRequiredContactUsPageValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameRequiredValidationContactUsPage)).getText();
+
+    }
+
+    public ContactUsFormPage assertLastNameContactUsPageRequiredValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameRequiredValidationContactUsPage)).isDisplayed();
+
+        Assert.assertEquals(getLastNameRequiredContactUsPageValidationText(), expectedError);
+
+        return this;
+
+
+    }
+
+
+
+    public String getEmailRequiredContactUsPageValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(emailRequiredValidationContactUsPage)).getText();
+
+    }
+
+    public ContactUsFormPage assertEmailContactUsPageRequiredValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(emailRequiredValidationContactUsPage)).isDisplayed();
+
+        Assert.assertEquals(getEmailRequiredContactUsPageValidationText(), expectedError);
+
+        return this;
+
+
+    }
+
+    public String getCountryRequiredContactUsPageValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(countryRequiredValidationContactUsPage)).getText();
+
+    }
+
+    public ContactUsFormPage assertCountryRequiredContactUsPageRequiredValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(countryRequiredValidationContactUsPage)).isDisplayed();
+
+        Assert.assertEquals(getCountryRequiredContactUsPageValidationText(), expectedError);
+
+        return this;
+
+    }
+
+
+    public String getInvalidPhoneNumRequiredContactUsPageValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(invalidPhoneNumberValidationContactUsPage)).getText();
+
+    }
+
+    public ContactUsFormPage assertInvalidPhoneRequiredContactUsPageRequiredValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(invalidPhoneNumberValidationContactUsPage)).isDisplayed();
+
+        Assert.assertEquals(getInvalidPhoneNumRequiredContactUsPageValidationText(), expectedError);
+
+        return this;
+
+    }
+
+
+    public String getSubjectRequiredContactUsPageValidationText() {
+
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(subjectRequiredValidationContactUsPage)).getText();
+
+    }
+
+    public ContactUsFormPage assertSubjectRequiredContactUsPageRequiredValidationTextIsDisplayedAndIsCorrect(String expectedError) {
+
+        wait.until(ExpectedConditions.visibilityOfElementLocated(subjectRequiredValidationContactUsPage)).isDisplayed();
+
+        Assert.assertEquals(getSubjectRequiredContactUsPageValidationText(), expectedError);
 
         return this;
 

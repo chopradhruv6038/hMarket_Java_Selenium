@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class LiveAccountCreationValidationsTests extends BaseTest {
+public class LiveAccountCreationErrorsOrValidationsTests extends BaseTest {
 
 
     protected HomePage homePage;
@@ -21,14 +21,14 @@ public class LiveAccountCreationValidationsTests extends BaseTest {
     protected TryADemoRegistrationFormPage tryADemoRegistrationFormPage;
     protected PersonalDetailsPage personalDetailsPage;
 
-    String path;
-    InputStream loginDetails;
-    Properties props;
+    protected String path;
+    protected InputStream loginDetails;
+    protected Properties props;
 
-    InputStream inputData;
-    JSONObject jsonObject;
-    JSONTokener jsonTokener;
-    String jsonPath;
+    protected InputStream inputData;
+    protected JSONObject jsonObject;
+    protected JSONTokener jsonTokener;
+    protected String jsonPath;
 
     @BeforeClass
     public void beforeClass() throws IOException {
@@ -59,31 +59,7 @@ public class LiveAccountCreationValidationsTests extends BaseTest {
     }
 
 
-    @Test(priority = 1, description = "This test will successfully register and open a live account and validate successful message upon opening")
-    public void liveAccRegistrationSuccessFulTests() throws InterruptedException {
-
-        homePage.loadUrl(props.getProperty("hmarketswebURL"), "");
-
-        openLiveAccRegistrationFormPage = homePage.clickOpenAnAccBtnCntrHomePage();
-
-        openLiveAccRegistrationFormPage.validateOpenAnAccountHeaderIsDisplayed();
-        openLiveAccRegistrationFormPage.enterFirstNameLiveAcc(jsonObject.getJSONObject("LiveAccCreationFormData").getString("FirstName"))
-                .enterLastNameLiveAcc(jsonObject.getJSONObject("LiveAccCreationFormData").getString("LastName"))
-                .enterEmailLiveAcc(openLiveAccRegistrationFormPage.generateRandomEmail());
-        openLiveAccRegistrationFormPage.selectCountryLiveAcc(jsonObject.getJSONObject("LiveAccCreationFormData").getString("CountryValue"));
-        openLiveAccRegistrationFormPage.enterPhoneNumberLivAcc(jsonObject.getJSONObject("LiveAccCreationFormData").getString("PhoneNumber"))
-                .enterPasswordLivAcc(jsonObject.getJSONObject("LiveAccCreationFormData").getString("Password"))
-                .clickMarketingCheckBoxLivAcc();
-
-        personalDetailsPage = openLiveAccRegistrationFormPage.clickStartYourApplicationBtn();
-        personalDetailsPage.validatePersonalDetailsTextIsDisplayed();
-        personalDetailsPage.assertPersonalDetailsSectionTextIsCorrect(jsonObject.getJSONObject("LiveAccCreationExpectedTexts").getString("PersonalDetailsSectionText"));
-
-
-    }
-
-
-    @Test(priority = 0, description = "This tests validate all the error or validations for all form fields for opening live account.")
+    @Test(priority = 0, description = "Live Account_negative_validations | This tests validate all the error or validations for all form fields for opening Live account.")
     public void LiveAccRegistrationNegativeValidationsTests() {
 
         homePage.loadUrl(props.getProperty("hmarketswebURL"), "");
@@ -98,13 +74,7 @@ public class LiveAccountCreationValidationsTests extends BaseTest {
                 .assertPasswordCharacterValidationTextIsDisplayedAndIsCorrect(jsonObject.getJSONObject("LiveAccCreationFormDataValidations").getString("PasswordValidation"));
 
 
-
-
     }
-
-
-
-
 
 
 }

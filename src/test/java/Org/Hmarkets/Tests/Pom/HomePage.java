@@ -19,7 +19,7 @@ public class HomePage extends BasePage {
 
     protected final By contactUsLinkTopNavigationBarHomePage = By.xpath("(//a[normalize-space()='Contact Us'])[1]");
 
-    // Method Starts
+    // Method-user actions Starts
 
     public void loadUrl(String url, String path) { // method to load URL, path can be passed when called in test class according to the need.
 

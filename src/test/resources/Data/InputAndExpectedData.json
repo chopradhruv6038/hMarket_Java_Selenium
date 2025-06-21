@@ -32,6 +32,18 @@
     "SuccessMessageDemoAcc": "Your submission was successful."
   },
 
+  "DemoAccCreationFormDataValidations": {
+
+    "LeverageValidation": "Leverage is required",
+    "AccSizeValidation": "Account size is required",
+    "FirstNameValidation": "First name is required",
+    "LastNameValidation": "Last name is required",
+    "EmailValidation": "Email is required",
+    "CountryValidation": "Country is required",
+    "PhoneNumberValidation": "Invalid phone number"
+
+  },
+
   "ContactUsFormData": {
 
     "ContactUsPageHeader": "Contact us",
@@ -44,7 +56,16 @@
     "SuccessMessageContactUsForm": "Your submission was successful."
   },
 
+  "ContactUsFormDataValidations": {
 
+    "FirstNameValidation": "First name is required",
+    "LastNameValidation": "Last name is required",
+    "EmailValidation": "Email is required",
+    "CountryValidation": "Country is required",
+    "PhoneNumberValidation": "Invalid phone number",
+    "SubjectValidation": "Subject is required"
+
+  },
 
   "LiveAccCreationExpectedTexts": {
 

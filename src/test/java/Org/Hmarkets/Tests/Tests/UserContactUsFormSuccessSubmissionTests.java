@@ -19,14 +19,14 @@ public class UserContactUsFormSuccessSubmissionTests extends BaseTest {
     protected HomePage homePage;
     protected ContactUsFormPage contactUsFormPage;
 
-    String path;
-    InputStream loginDetails;
-    Properties props;
+    protected String path;
+    protected InputStream loginDetails;
+    protected Properties props;
 
-    InputStream inputData;
-    JSONObject jsonObject;
-    JSONTokener jsonTokener;
-    String jsonPath;
+    protected InputStream inputData;
+    protected JSONObject jsonObject;
+    protected JSONTokener jsonTokener;
+    protected String jsonPath;
 
     @BeforeClass
     public void beforeClass() throws IOException {
@@ -55,7 +55,7 @@ public class UserContactUsFormSuccessSubmissionTests extends BaseTest {
     }
 
 
-    @Test(priority = 0, description = "This test will successfully fill a contact us form and validate success message")
+    @Test(priority = 0, description = "Contact us form_success_submission | This test will successfully fill a contact us form and validate success message")
     public void contactUsFormSuccessfulTests() throws InterruptedException {
 
         homePage.loadUrl(props.getProperty("hmarketswebURL"), "");
