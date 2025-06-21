@@ -19,7 +19,7 @@ Both **successful form submissions** and **field-level validation errors** are t
 - 🔄 **Comprehensive Form Testing** — Validates both positive and negative test flows.
 - 🧱 **Modular Architecture** — Built using **Object-Oriented Design** and **Page Object Model**.
 - 📦 **Data-Driven Testing** — Uses **external JSON files** to define expected validation messages and test inputs.
-- ⚙️ **Environment Configurable** — Only the URL is managed via `config.properties`.
+- ⚙️ **Environment Configurable** — Config properties such as URL is managed via `config.properties`.
 - 🚀 **Scalable & Maintainable** — Designed for long-term use and easy expansion.
 - 🧪 **TestNG + Maven** — For streamlined execution and dependency management.
 
@@ -92,9 +92,6 @@ Contact Us Form   | ✅            | ✅
 ✅ TestNG annotations for grouping, parallelization, and prioritization
 
 ✅ Only explicit waits with conditions are used – no Thread.sleep() calls anywhere in the test code
-
-
-
 
 
 👤 Author
