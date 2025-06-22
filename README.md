@@ -2,6 +2,10 @@
 
 This project is a robust UI test automation framework for validating the core functionalities of [HMarkets.com](https://hmarkets.com). It focuses on form submission scenarios, ensuring both successful and negative test flows across key user-facing forms.
 
+GitHub Repo:
+
+https://github.com/chopradhruv6038/hMarket_Java_Selenium.git
+
 ## 📌 Overview
 
 This suite automates **end-to-end testing** for:
@@ -100,10 +104,10 @@ Contact Us Form   | ✅            | ✅
 
 
 ⚠️ CAPTCHA Handling with Selenium
-Google reCAPTCHA is intentionally designed to prevent automation by tools like Selenium. It uses advanced browser and behavior analysis, making it impossible to solve reCAPTCHA automatically in UI tests.
 
-Automation Limitation:
-Selenium (and similar tools) cannot bypass or solve reCAPTCHA. Any attempt to interact with it will result in failure or an infinite spinner.
+Note: Google reCAPTCHA cannot be bypassed or solved by Selenium (or any automation tool) because it is specifically designed to detect and block automated bots via advanced fingerprinting and behavioral analysis.
+
+Test Limitation: When running Contact Us form success submission tests, the reCAPTCHA step is encountered after filling the message field. Selenium cannot solve this CAPTCHA automatically. If your test environment has CAPTCHA enabled, you will need to solve it manually during test execution.
 
 Recommended Approach:
 
@@ -115,6 +119,7 @@ This scenario specifically affects the Contact Us form success submission tests,
 Relevant steps to handle the captcha are commented in the codebase, along with this explanation.
 
 👤 Author
+
 Dhruv Chopra
 Senior QA Engineer | Dubai
 https://www.linkedin.com/in/dhruv-chopra-dxb/
