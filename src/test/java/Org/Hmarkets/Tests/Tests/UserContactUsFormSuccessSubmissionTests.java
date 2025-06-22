@@ -81,23 +81,14 @@ public class UserContactUsFormSuccessSubmissionTests extends BaseTest {
         // That’s expected in most live sites because Google reCAPTCHA uses advanced detection like fingerprinting, user behavior analysis, and browser heuristics.
         // Commenting the below user actions / methods as selenium cannot surpass captcha.
 
+        //Solutions:
         // Need to Disable captcha in test ENV for selenium or any test automation to successfully click Captcha.
-
+        // Increase the wait to manually click the captcha.
 //        contactUsFormPage.switchToDefaultContent();
 //        contactUsFormPage
 //                .clickSendEnquiryBtnContactUsForm()
 //                .validateSuccessfulMessageIsDisplayed();
 //        contactUsFormPage.assertContactUsSuccessfulSubmissionTextIsCorrect(jsonObject.getJSONObject("ContactUsFormData").getString("SuccessMessageContactUsForm"));
-
-
-    }
-
-
-    @Test(priority = 1, description = "Demo account negative / validations tests, this test will validate all the validations or errors")
-    public void contactUsFormNegativeValidationsTests() {
-
-        homePage.loadUrl(props.getProperty("hmarketswebURL"), "");
-        contactUsFormPage = homePage.clickContactUsBtnTopHomePage();
 
 
     }

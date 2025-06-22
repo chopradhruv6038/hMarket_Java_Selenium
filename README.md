@@ -99,6 +99,21 @@ Contact Us Form   | ✅            | ✅
 ✅ Only explicit waits with conditions are used – no Thread.sleep() calls anywhere in the test code
 
 
+⚠️ CAPTCHA Handling with Selenium
+Google reCAPTCHA is intentionally designed to prevent automation by tools like Selenium. It uses advanced browser and behavior analysis, making it impossible to solve reCAPTCHA automatically in UI tests.
+
+Automation Limitation:
+Selenium (and similar tools) cannot bypass or solve reCAPTCHA. Any attempt to interact with it will result in failure or an infinite spinner.
+
+Recommended Approach:
+
+For automated test execution, disable or mock reCAPTCHA in your test or staging environment.
+
+If not possible, manual intervention is required to solve the captcha during test execution. Our code uses an explicit wait at the captcha step to allow time for manual solving when needed.
+
+This scenario specifically affects the Contact Us form success submission tests, where the captcha is encountered after the message field is filled.
+Relevant steps to handle the captcha are commented in the codebase, along with this explanation.
+
 👤 Author
 Dhruv Chopra
 Senior QA Engineer | Dubai

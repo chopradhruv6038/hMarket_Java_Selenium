@@ -1,75 +1,75 @@
-{
-  "LiveAccCreationFormData": {
+  {
+    "LiveAccCreationFormData": {
 
-    "FirstName": "Dhruv",
-    "LastName": "Chopra",
-    "CountryValue": "GB",
-    "PhoneNumber": "07400123456",
-    "Password": "Hello@123"
+      "FirstName": "Dhruv",
+      "LastName": "Chopra",
+      "CountryValue": "GB",
+      "PhoneNumber": "07400123456",
+      "Password": "Hello@123"
 
-  },
+    },
 
-  "LiveAccCreationFormDataValidations": {
+    "LiveAccCreationFormDataValidations": {
 
-    "FirstNameValidation": "First name is required",
-    "LastNameValidation": "Last name is required",
-    "EmailValidation": "Email is required",
-    "CountryValidation": "Country is required",
-    "PhoneNumberValidation": "Invalid phone number",
-    "PasswordValidation": "Between 8 and 20 characters long"
+      "FirstNameValidation": "First name is required",
+      "LastNameValidation": "Last name is required",
+      "EmailValidation": "Email is required",
+      "CountryValidation": "Country is required",
+      "PhoneNumberValidation": "Invalid phone number",
+      "PasswordValidation": "Between 8 and 20 characters long"
 
-  },
+    },
 
 
-  "DemoCreationFormData": {
+    "DemoCreationFormData": {
 
-    "SelectLeverage": "1:200",
-    "DemoAccSize": "5000",
-    "FirstName": "Dhruv",
-    "LastName": "Chopra",
-    "CountryValue":"GB",
-    "PhoneNum": "07400123456",
-    "SuccessMessageDemoAcc": "Your submission was successful."
-  },
+      "SelectLeverage": "1:200",
+      "DemoAccSize": "5000",
+      "FirstName": "Dhruv",
+      "LastName": "Chopra",
+      "CountryValue":"GB",
+      "PhoneNum": "07400123456",
+      "SuccessMessageDemoAcc": "Your submission was successful."
+    },
 
-  "DemoAccCreationFormDataValidations": {
+    "DemoAccCreationFormDataValidations": {
 
-    "LeverageValidation": "Leverage is required",
-    "AccSizeValidation": "Account size is required",
-    "FirstNameValidation": "First name is required",
-    "LastNameValidation": "Last name is required",
-    "EmailValidation": "Email is required",
-    "CountryValidation": "Country is required",
-    "PhoneNumberValidation": "Invalid phone number"
+      "LeverageValidation": "Leverage is required",
+      "AccSizeValidation": "Account size is required",
+      "FirstNameValidation": "First name is required",
+      "LastNameValidation": "Last name is required",
+      "EmailValidation": "Email is required",
+      "CountryValidation": "Country is required",
+      "PhoneNumberValidation": "Invalid phone number"
 
-  },
+    },
 
-  "ContactUsFormData": {
+    "ContactUsFormData": {
 
-    "ContactUsPageHeader": "Contact us",
-    "FirstName": "Dhruv",
-    "LastName": "Chopra",
-    "CountryValue":"GB",
-    "PhoneNum": "07400123456",
-    "Subject": "Payments",
-    "Message": "Hello This is Dhruv, the QA Specialist, Greetings!",
-    "SuccessMessageContactUsForm": "Your submission was successful."
-  },
+      "ContactUsPageHeader": "Contact us",
+      "FirstName": "Dhruv",
+      "LastName": "Chopra",
+      "CountryValue":"GB",
+      "PhoneNum": "07400123456",
+      "Subject": "Payments",
+      "Message": "Hello This is Dhruv, the QA Specialist, Greetings!",
+      "SuccessMessageContactUsForm": "Your submission was successful."
+    },
 
-  "ContactUsFormDataValidations": {
+    "ContactUsFormDataValidations": {
 
-    "FirstNameValidation": "First name is required",
-    "LastNameValidation": "Last name is required",
-    "EmailValidation": "Email is required",
-    "CountryValidation": "Country is required",
-    "PhoneNumberValidation": "Invalid phone number",
-    "SubjectValidation": "Subject is required"
+      "FirstNameValidation": "First name is required",
+      "LastNameValidation": "Last name is required",
+      "EmailValidation": "Email is required",
+      "CountryValidation": "Country is required",
+      "PhoneNumberValidation": "Invalid phone number",
+      "SubjectValidation": "Subject is required"
 
-  },
+    },
 
-  "LiveAccCreationExpectedTexts": {
+    "LiveAccCreationExpectedTexts": {
 
-    "PersonalDetailsSectionText": "Personal details"
+      "PersonalDetailsSectionText": "Personal details"
 
+    }
   }
-}
